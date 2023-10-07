@@ -1,0 +1,552 @@
+-------------------- Log Start | Fri Oct  6 10:35:24 2023 --------------------
+data_path: /home/alchemist/printer_data
+is_default_data_path: False
+config_file: /home/alchemist/printer_data/config/moonraker.conf
+startup_warnings: []
+verbose: False
+debug: False
+asyncio_debug: False
+is_backup_config: False
+is_python_package: True
+instance_uuid: ab5be7a6139e4470a15d19d80d7183ec
+unix_socket_path: /home/alchemist/printer_data/comms/moonraker.sock
+software_version: v0.8.0-142-gee62d07
+git_branch: master
+git_remote: origin
+git_repo_url: https://github.com/Arksine/moonraker.git
+modified_files: []
+unofficial_components: []
+log_file: /home/alchemist/printer_data/logs/moonraker.log
+python_version: 3.9.2 (default, Mar 12 2021, 04:06:34)  [GCC 10.2.1 20210110]
+
+#################### Moonraker Configuration ####################
+
+[server]
+host = 0.0.0.0
+port = 7125
+max_upload_size = 1024
+klippy_uds_address = ~/printer_data/comms/klippy.sock
+
+[file_manager]
+enable_object_processing = False
+
+[authorization]
+cors_domains = 
+	https://my.mainsail.xyz
+	http://my.mainsail.xyz
+	http://*.local
+	http://*.lan
+trusted_clients = 
+	10.0.0.0/8
+	127.0.0.0/8
+	169.254.0.0/16
+	172.16.0.0/12
+	192.168.0.0/16
+	FE80::/10
+	::1/128
+
+[octoprint_compat]
+
+[history]
+
+[announcements]
+subscriptions = 
+	mainsail
+
+[update_manager]
+refresh_interval = 168
+enable_auto_refresh = True
+
+[update_manager mainsail]
+type = web
+channel = stable
+repo = mainsail-crew/mainsail
+path = ~/mainsail
+
+[update_manager mainsail-config]
+type = git_repo
+primary_branch = master
+path = ~/mainsail-config
+origin = https://github.com/mainsail-crew/mainsail-config.git
+managed_services = klipper
+
+[update_manager crowsnest]
+type = git_repo
+path = ~/crowsnest
+origin = https://github.com/mainsail-crew/crowsnest.git
+managed_services = crowsnest
+install_script = tools/pkglist.sh
+
+[update_manager sonar]
+type = git_repo
+path = ~/sonar
+origin = https://github.com/mainsail-crew/sonar.git
+primary_branch = main
+managed_services = sonar
+install_script = tools/install.sh
+
+#################################################################
+All Configuration Files:
+/home/alchemist/printer_data/config/moonraker.conf
+#################################################################
+Unsafe Shutdown Count: 0
+
+System Info:
+
+***python***
+  version: sys.version_info(major=3, minor=9, micro=2, releaselevel='final', serial=0)
+  version_string: 3.9.2 (default, Mar 12 2021, 04:06:34)  [GCC 10.2.1 20210110]
+
+***cpu_info***
+  cpu_count: 4
+  bits: 32bit
+  processor: armv7l
+  cpu_desc: ARMv7 Processor rev 4 (v7l)
+  serial_number: 8ec3a5ad
+  hardware_desc: BCM2835
+  model: Raspberry Pi Zero 2 W Rev 1.0
+  total_memory: 372020
+  memory_units: kB
+
+***sd_info***
+  manufacturer_id: 03
+  manufacturer: Sandisk
+  oem_id: 5344
+  product_name: SS16G
+  product_revision: 8.0
+  serial_number: c4af0d26
+  manufacturer_date: 11/2020
+  capacity: 14.8 GiB
+  total_bytes: 15931539456
+
+***distribution***
+  name: Raspbian GNU/Linux 11 (bullseye)
+  id: raspbian
+  version: 11
+  version_parts: {'major': '11', 'minor': '', 'build_number': ''}
+  like: debian
+  codename: bullseye
+  release_info: {'name': 'MainsailOS', 'version_id': '1.2.1', 'codename': 'bullseye', 'id': 'mainsailos'}
+
+***virtualization***
+  virt_type: none
+  virt_identifier: none
+
+***network***
+
+***canbus***
+
+***Allowed Services***
+  klipper_mcu
+  webcamd
+  MoonCord
+  KlipperScreen
+  moonraker-telegram-bot
+  moonraker-obico
+  sonar
+  crowsnest
+  octoeverywhere
+  ratos-configurator
+
+Systemd unit moonraker.service:
+unit_name: moonraker.service
+is_default: True
+manager: systemd
+Properties:
+**Requires=['sysinit.target', 'system.slice', 'network-online.target']
+**After=['network-online.target', 'systemd-journald.socket', 'basic.target', 'klipper.service', 'system.slice', 'sysinit.target']
+**SupplementaryGroups=['moonraker-admin']
+**EnvironmentFiles=/home/alchemist/printer_data/systemd/moonraker.env
+**ExecStart=/home/alchemist/moonraker-env/bin/python $MOONRAKER_ARGS
+**WorkingDirectory=
+**FragmentPath=/etc/systemd/system/moonraker.service
+**Description=API Server for Klipper SV1
+**User=alchemist
+
+Systemd unit klipper.service:
+unit_name: klipper.service
+is_default: True
+manager: systemd
+Properties:
+**Requires=['-.mount', 'system.slice', 'sysinit.target']
+**After=['-.mount', 'network-online.target', 'systemd-journald.socket', 'basic.target', 'system.slice', 'sysinit.target']
+**SupplementaryGroups=[]
+**EnvironmentFiles=/home/alchemist/printer_data/systemd/klipper.env
+**ExecStart=/home/alchemist/klippy-env/bin/python $KLIPPER_ARGS
+**WorkingDirectory=/home/alchemist/klipper
+**FragmentPath=/etc/systemd/system/klipper.service
+**Description=Klipper 3D Printer Firmware SV1
+**User=alchemist
+Git Repo moonraker: Warnings detected:
+  Repo has untracked source files: ['moonraker/components/timelapse.py']
+Git Repo klipper: No warnings detected
+Git Repo mainsail-config: No warnings detected
+Git Repo sonar: No warnings detected
+Klipper Version: v0.11.0-291-g6adff395
+2023-10-06 21:35:24,370 [klippy_connection.py:_on_connection_closed()] - Klippy Connection Removed
+2023-10-06 21:35:25,637 [klippy_connection.py:_do_connect()] - Klippy Connection Established
+2023-10-06 21:35:27,441 [klippy_connection.py:_request_initial_subscriptions()] - Webhooks Subscribed
+2023-10-06 21:35:27,444 [klippy_connection.py:_request_initial_subscriptions()] - GCode Output Subscribed
+2023-10-06 21:35:27,692 [job_state.py:_handle_started()] - Job state initialized: standby
+2023-10-06 21:35:27,965 [klippy_connection.py:_check_ready()] - Klippy ready
+2023-10-06 21:35:28,457 [data_store.py:_init_sensors()] - Configuring available sensors: ['heater_bed', 'extruder']
+2023-10-06 21:59:08,402 [klippy_connection.py:_process_status_update()] - Klippy has shutdown
+2023-10-06 21:59:08,411 [proc_stats.py:_handle_shutdown()] - 
+Moonraker System Usage Statistics:
+System Time: 1696589918.578569, Usage: 6.01%, Memory: 23836 kB
+System Time: 1696589919.579377, Usage: 2.44%, Memory: 23836 kB
+System Time: 1696589920.580860, Usage: 2.49%, Memory: 23836 kB
+System Time: 1696589921.582443, Usage: 2.77%, Memory: 23836 kB
+System Time: 1696589922.583013, Usage: 2.42%, Memory: 23836 kB
+System Time: 1696589923.584578, Usage: 2.43%, Memory: 23836 kB
+System Time: 1696589924.585270, Usage: 2.42%, Memory: 23836 kB
+System Time: 1696589925.587591, Usage: 2.42%, Memory: 23836 kB
+System Time: 1696589926.588426, Usage: 2.43%, Memory: 23836 kB
+System Time: 1696589927.589677, Usage: 2.38%, Memory: 23836 kB
+System Time: 1696589928.591706, Usage: 6.04%, Memory: 23836 kB
+System Time: 1696589929.593825, Usage: 2.3%, Memory: 23836 kB
+System Time: 1696589930.597133, Usage: 2.34%, Memory: 23836 kB
+System Time: 1696589931.598087, Usage: 2.93%, Memory: 23836 kB
+System Time: 1696589932.600230, Usage: 2.66%, Memory: 23836 kB
+System Time: 1696589933.598858, Usage: 2.61%, Memory: 23836 kB
+System Time: 1696589934.600289, Usage: 2.51%, Memory: 23836 kB
+System Time: 1696589935.601867, Usage: 2.49%, Memory: 23836 kB
+System Time: 1696589936.603227, Usage: 2.54%, Memory: 23836 kB
+System Time: 1696589937.604776, Usage: 2.5%, Memory: 23836 kB
+System Time: 1696589938.606174, Usage: 6.15%, Memory: 23836 kB
+System Time: 1696589939.607298, Usage: 2.43%, Memory: 23836 kB
+System Time: 1696589940.608233, Usage: 2.47%, Memory: 23836 kB
+System Time: 1696589941.609291, Usage: 2.79%, Memory: 23836 kB
+System Time: 1696589942.610933, Usage: 2.45%, Memory: 23836 kB
+System Time: 1696589943.612630, Usage: 2.41%, Memory: 23836 kB
+System Time: 1696589944.613359, Usage: 2.46%, Memory: 23836 kB
+System Time: 1696589945.614572, Usage: 2.39%, Memory: 23836 kB
+System Time: 1696589946.616572, Usage: 2.45%, Memory: 23836 kB
+System Time: 1696589947.618418, Usage: 2.41%, Memory: 23836 kB
+CPU Temperature: 45.084
+2023-10-06 21:59:08,436 [proc_stats.py:_handle_shutdown()] - Throttled Flags: 
+2023-10-06 21:59:16,632 [klippy_connection.py:_on_connection_closed()] - Klippy Connection Removed
+2023-10-06 21:59:17,909 [klippy_connection.py:_do_connect()] - Klippy Connection Established
+2023-10-06 21:59:19,644 [klippy_connection.py:_request_initial_subscriptions()] - Webhooks Subscribed
+2023-10-06 21:59:19,650 [klippy_connection.py:_request_initial_subscriptions()] - GCode Output Subscribed
+2023-10-06 21:59:19,655 [klippy_connection.py:_check_ready()] - 
+Can not update MCU 'mcu' config as it is shutdown
+Once the underlying issue is corrected, use the
+"FIRMWARE_RESTART" command to reset the firmware, reload the
+config, and restart the host software.
+Error configuring printer
+
+2023-10-06 21:59:22,414 [klippy_connection.py:_on_connection_closed()] - Klippy Connection Removed
+2023-10-06 21:59:23,676 [klippy_connection.py:_do_connect()] - Klippy Connection Established
+2023-10-06 21:59:25,296 [klippy_connection.py:_request_initial_subscriptions()] - Webhooks Subscribed
+2023-10-06 21:59:25,300 [klippy_connection.py:_request_initial_subscriptions()] - GCode Output Subscribed
+2023-10-06 21:59:25,548 [job_state.py:_handle_started()] - Job state initialized: standby
+2023-10-06 21:59:25,822 [klippy_connection.py:_check_ready()] - Klippy ready
+2023-10-06 21:59:26,308 [data_store.py:_init_sensors()] - Configuring available sensors: ['heater_bed', 'extruder']
+2023-10-06 22:16:28,354 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 60.00 seconds
+2023-10-06 22:17:28,356 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 120.00 seconds
+2023-10-06 22:18:28,358 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 180.01 seconds
+2023-10-06 22:20:32,263 [klippy_connection.py:_on_connection_closed()] - Klippy Connection Removed
+2023-10-06 22:20:33,526 [klippy_connection.py:_do_connect()] - Klippy Connection Established
+2023-10-06 22:20:35,315 [klippy_connection.py:_request_initial_subscriptions()] - Webhooks Subscribed
+2023-10-06 22:20:35,321 [klippy_connection.py:_request_initial_subscriptions()] - GCode Output Subscribed
+2023-10-06 22:20:35,567 [job_state.py:_handle_started()] - Job state initialized: standby
+2023-10-06 22:20:35,840 [klippy_connection.py:_check_ready()] - Klippy ready
+2023-10-06 22:20:36,332 [data_store.py:_init_sensors()] - Configuring available sensors: ['heater_bed', 'extruder']
+2023-10-06 22:22:12,021 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 60.00 seconds
+2023-10-06 22:23:12,023 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 120.00 seconds
+2023-10-06 22:24:12,025 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 180.01 seconds
+2023-10-06 22:25:12,028 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 240.01 seconds
+2023-10-06 22:26:12,030 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 300.01 seconds
+2023-10-06 22:27:12,032 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 360.01 seconds
+2023-10-06 22:28:12,034 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 420.02 seconds
+2023-10-06 22:33:12,514 [klippy_connection.py:_on_connection_closed()] - Klippy Connection Removed
+2023-10-06 22:33:13,776 [klippy_connection.py:_do_connect()] - Klippy Connection Established
+2023-10-06 22:33:15,537 [klippy_connection.py:_request_initial_subscriptions()] - Webhooks Subscribed
+2023-10-06 22:33:15,541 [klippy_connection.py:_request_initial_subscriptions()] - GCode Output Subscribed
+2023-10-06 22:33:15,788 [job_state.py:_handle_started()] - Job state initialized: standby
+2023-10-06 22:33:16,061 [klippy_connection.py:_check_ready()] - Klippy ready
+2023-10-06 22:33:16,548 [data_store.py:_init_sensors()] - Configuring available sensors: ['heater_bed', 'extruder']
+2023-10-06 22:39:08,661 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 60.00 seconds
+2023-10-06 22:40:08,665 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 120.01 seconds
+2023-10-06 22:41:08,667 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 180.01 seconds
+2023-10-06 22:42:08,670 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 240.01 seconds
+2023-10-06 22:43:08,673 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 300.01 seconds
+2023-10-06 22:44:08,676 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 360.02 seconds
+2023-10-06 22:45:08,678 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 420.02 seconds
+2023-10-06 22:46:08,681 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 480.02 seconds
+2023-10-06 22:47:08,683 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 540.02 seconds
+2023-10-06 22:48:08,685 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 600.03 seconds
+2023-10-06 22:49:08,689 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 660.03 seconds
+2023-10-06 22:50:08,691 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 720.03 seconds
+2023-10-06 22:51:08,693 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 780.03 seconds
+2023-10-06 22:52:08,695 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 840.04 seconds
+2023-10-06 22:52:27,972 [klippy_connection.py:_on_connection_closed()] - Klippy Connection Removed
+2023-10-06 22:52:29,236 [klippy_connection.py:_do_connect()] - Klippy Connection Established
+2023-10-06 22:52:30,996 [klippy_connection.py:_request_initial_subscriptions()] - Webhooks Subscribed
+2023-10-06 22:52:31,001 [klippy_connection.py:_request_initial_subscriptions()] - GCode Output Subscribed
+2023-10-06 22:52:31,247 [job_state.py:_handle_started()] - Job state initialized: standby
+2023-10-06 22:52:31,521 [klippy_connection.py:_check_ready()] - Klippy ready
+2023-10-06 22:52:32,013 [data_store.py:_init_sensors()] - Configuring available sensors: ['heater_bed', 'extruder']
+2023-10-06 22:58:33,157 [klippy_connection.py:_on_connection_closed()] - Klippy Connection Removed
+2023-10-06 22:58:34,419 [klippy_connection.py:_do_connect()] - Klippy Connection Established
+2023-10-06 22:58:36,189 [klippy_connection.py:_request_initial_subscriptions()] - Webhooks Subscribed
+2023-10-06 22:58:36,195 [klippy_connection.py:_request_initial_subscriptions()] - GCode Output Subscribed
+2023-10-06 22:58:36,440 [job_state.py:_handle_started()] - Job state initialized: standby
+2023-10-06 22:58:36,713 [klippy_connection.py:_check_ready()] - Klippy ready
+2023-10-06 22:58:37,201 [data_store.py:_init_sensors()] - Configuring available sensors: ['heater_bed', 'extruder']
+2023-10-06 23:00:05,266 [proc_stats.py:_watchdog_callback()] - EVENT LOOP BLOCKED: 5.01 seconds, total blocked count: 1
+2023-10-06 23:00:05,468 [proc_stats.py:log_last_stats()] - 
+System Time: 1696593598.244691, Usage: 2.26%, Memory: 24556 kB
+System Time: 1696593599.247188, Usage: 1.8%, Memory: 24556 kB
+System Time: 1696593600.247069, Usage: 2.09%, Memory: 24556 kB
+System Time: 1696593601.247399, Usage: 2.28%, Memory: 24556 kB
+System Time: 1696593602.254232, Usage: 1.78%, Memory: 24556 kB
+2023-10-06 23:00:08,316 [base_deploy.py:log_info()] - PackageKit: Detected 54 package updates:
+bind9-host
+bind9-libs
+ffmpeg
+file
+firmware-atheros
+firmware-brcm80211
+firmware-libertas
+firmware-misc-nonfree
+firmware-realtek
+libaom0
+libavcodec-dev
+libavcodec58
+libavdevice58
+libavfilter7
+libavformat-dev
+libavformat58
+libavresample4
+libavutil-dev
+libavutil56
+libc-bin
+libc-dev-bin
+libc-devtools
+libc-l10n
+libc6
+libc6-dbg
+libc6-dev
+libcamera-apps-lite
+libcamera-dev
+libcamera0
+libflac8
+libgstreamer-plugins-base1.0-0
+libjson-c5
+libmagic-mgc
+libmagic1
+libpostproc55
+librsvg2-2
+librsvg2-common
+libssl-dev
+libssl1.1
+libswresample-dev
+libswresample3
+libswscale5
+libvpx6
+libwebp6
+libwebpdemux2
+libwebpmux3
+libx11-6
+libx11-data
+libx11-xcb1
+libxpm4
+locales
+openssl
+python3-libcamera
+python3-picamera2
+2023-10-06 23:00:08,557 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/moonraker status --porcelain -b) successfully finished
+2023-10-06 23:00:08,600 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/moonraker branch --list --no-color) successfully finished
+2023-10-06 23:00:08,643 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/moonraker remote get-url origin) successfully finished
+2023-10-06 23:00:10,820 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/moonraker fetch origin --prune --progress) successfully finished
+2023-10-06 23:00:10,840 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/moonraker merge-base --is-ancestor HEAD origin/master) successfully finished
+2023-10-06 23:00:10,860 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/moonraker rev-parse HEAD) successfully finished
+2023-10-06 23:00:10,893 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/moonraker describe --always --tags --long --dirty --abbrev=8) successfully finished
+2023-10-06 23:00:10,912 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/moonraker rev-parse origin/master) successfully finished
+2023-10-06 23:00:10,945 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/moonraker describe origin/master --always --tags --long --abbrev=8) successfully finished
+2023-10-06 23:00:10,966 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/moonraker rev-list HEAD..52ee49eed3bfd858fdea10a1bfba2a1e77da73b1 --count) successfully finished
+2023-10-06 23:00:10,989 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/moonraker log ee62d07c6826ec9c39b381ee9e85249c6d753cd5..origin/master --format="sha:%H%x1Dauthor:%an%x1Ddate:%ct%x1Dsubject:%s%x1Dmessage:%b%x1E" --max-count=100) successfully finished
+2023-10-06 23:00:11,143 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/moonraker for-each-ref --count=100 --sort='-creatordate' --contains=HEAD --merged=origin/master --format='%(if)%(*objecttype)%(then)%(*objecttype) %(*objectname)%(else)%(objecttype) %(objectname)%(end) %(refname)' 'refs/tags') successfully finished
+2023-10-06 23:00:11,144 [git_deploy.py:log_repo_info()] - Git Repo moonraker Detected:
+Owner: Arksine
+Repository Name: moonraker
+Path: /home/alchemist/moonraker
+Remote: origin
+Branch: master
+Remote URL: https://github.com/Arksine/moonraker.git
+Recovery URL: https://github.com/Arksine/moonraker.git
+Current Commit SHA: ee62d07c6826ec9c39b381ee9e85249c6d753cd5
+Upstream Commit SHA: 52ee49eed3bfd858fdea10a1bfba2a1e77da73b1
+Current Version: v0.8.0-142-gee62d07c
+Upstream Version: v0.8.0-146-g52ee49ee
+Rollback Commit: ee62d07c6826ec9c39b381ee9e85249c6d753cd5
+Rollback Branch: master
+Rollback Version: v0.8.0-142-gee62d07
+Is Dirty: False
+Is Detached: False
+Is Shallow: False
+Commits Behind Count: 4
+Diverged: False
+Repo Warnings:
+  Repo has untracked source files: ['moonraker/components/timelapse.py']
+2023-10-06 23:00:11,145 [base_deploy.py:log_info()] - Git Repo moonraker: Channel: dev
+2023-10-06 23:00:11,145 [base_deploy.py:log_info()] - Git Repo moonraker: Validity check for git repo passed
+2023-10-06 23:00:11,366 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/klipper status --porcelain -b) successfully finished
+2023-10-06 23:00:11,403 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/klipper branch --list --no-color) successfully finished
+2023-10-06 23:00:11,438 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/klipper remote get-url origin) successfully finished
+2023-10-06 23:00:13,581 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/klipper fetch origin --prune --progress) successfully finished
+2023-10-06 23:00:13,602 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/klipper merge-base --is-ancestor HEAD origin/master) successfully finished
+2023-10-06 23:00:13,620 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/klipper rev-parse HEAD) successfully finished
+2023-10-06 23:00:13,890 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/klipper describe --always --tags --long --dirty --abbrev=8) successfully finished
+2023-10-06 23:00:13,915 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/klipper rev-parse origin/master) successfully finished
+2023-10-06 23:00:14,168 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/klipper describe origin/master --always --tags --long --abbrev=8) successfully finished
+2023-10-06 23:00:14,190 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/klipper rev-list HEAD..83ef0e135ef820f73c8579069c347953b9d6d56e --count) successfully finished
+2023-10-06 23:00:14,213 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/klipper log 6adff3954b149877c8a587893b18b291e34856b2..origin/master --format="sha:%H%x1Dauthor:%an%x1Ddate:%ct%x1Dsubject:%s%x1Dmessage:%b%x1E" --max-count=100) successfully finished
+2023-10-06 23:00:14,472 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/klipper for-each-ref --count=100 --sort='-creatordate' --contains=HEAD --merged=origin/master --format='%(if)%(*objecttype)%(then)%(*objecttype) %(*objectname)%(else)%(objecttype) %(objectname)%(end) %(refname)' 'refs/tags') successfully finished
+2023-10-06 23:00:14,474 [git_deploy.py:log_repo_info()] - Git Repo klipper Detected:
+Owner: Klipper3d
+Repository Name: klipper
+Path: /home/alchemist/klipper
+Remote: origin
+Branch: master
+Remote URL: https://github.com/Klipper3d/klipper.git
+Recovery URL: https://github.com/Klipper3d/klipper.git
+Current Commit SHA: 6adff3954b149877c8a587893b18b291e34856b2
+Upstream Commit SHA: 83ef0e135ef820f73c8579069c347953b9d6d56e
+Current Version: v0.11.0-291-g6adff395
+Upstream Version: v0.11.0-295-g83ef0e13
+Rollback Commit: 6adff3954b149877c8a587893b18b291e34856b2
+Rollback Branch: master
+Rollback Version: v0.11.0-291-g6adff395
+Is Dirty: False
+Is Detached: False
+Is Shallow: False
+Commits Behind Count: 4
+Diverged: False
+2023-10-06 23:00:14,475 [base_deploy.py:log_info()] - Git Repo klipper: Channel: dev
+2023-10-06 23:00:14,475 [base_deploy.py:log_info()] - Git Repo klipper: Validity check for git repo passed
+2023-10-06 23:00:14,931 [web_deploy.py:_log_client_info()] - Web Client mainsail Detected:
+Repo: mainsail-crew/mainsail
+Channel: stable
+Path: /home/alchemist/mainsail
+Local Version: v2.7.1
+Remote Version: v2.7.1
+Valid: True
+Fallback Client Detected: False
+Pre-release: False
+Download Url: https://github.com/mainsail-crew/mainsail/releases/download/v2.7.1/mainsail.zip
+Download Size: 2114745
+Content Type: application/zip
+Rollback Version: v2.7.1
+Rollback Repo: mainsail-crew/mainsail
+2023-10-06 23:00:15,003 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/mainsail-config status --porcelain -b) successfully finished
+2023-10-06 23:00:15,044 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/mainsail-config branch --list --no-color) successfully finished
+2023-10-06 23:00:15,080 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/mainsail-config remote get-url origin) successfully finished
+2023-10-06 23:00:16,188 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/mainsail-config fetch origin --prune --progress) successfully finished
+2023-10-06 23:00:16,210 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/mainsail-config merge-base --is-ancestor HEAD origin/master) successfully finished
+2023-10-06 23:00:16,239 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/mainsail-config rev-parse HEAD) successfully finished
+2023-10-06 23:00:16,275 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/mainsail-config describe --always --tags --long --dirty --abbrev=8) successfully finished
+2023-10-06 23:00:16,309 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/mainsail-config rev-parse origin/master) successfully finished
+2023-10-06 23:00:16,331 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/mainsail-config describe origin/master --always --tags --long --abbrev=8) successfully finished
+2023-10-06 23:00:16,353 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/mainsail-config rev-list HEAD..c64d3af97a277ffdf607a398cc838991bcda069b --count) successfully finished
+2023-10-06 23:00:16,354 [git_deploy.py:log_repo_info()] - Git Repo mainsail-config Detected:
+Owner: mainsail-crew
+Repository Name: mainsail-config
+Path: /home/alchemist/mainsail-config
+Remote: origin
+Branch: master
+Remote URL: https://github.com/mainsail-crew/mainsail-config.git
+Recovery URL: https://github.com/mainsail-crew/mainsail-config.git
+Current Commit SHA: c64d3af97a277ffdf607a398cc838991bcda069b
+Upstream Commit SHA: c64d3af97a277ffdf607a398cc838991bcda069b
+Current Version: v1.0.0-16-gc64d3af9
+Upstream Version: v1.0.0-16-gc64d3af9
+Rollback Commit: c64d3af97a277ffdf607a398cc838991bcda069b
+Rollback Branch: master
+Rollback Version: v1.0.0-16-gc64d3af
+Is Dirty: False
+Is Detached: False
+Is Shallow: False
+Commits Behind Count: 0
+Diverged: False
+2023-10-06 23:00:16,354 [base_deploy.py:log_info()] - Git Repo mainsail-config: Channel: dev
+2023-10-06 23:00:16,354 [base_deploy.py:log_info()] - Git Repo mainsail-config: Validity check for git repo passed
+2023-10-06 23:00:16,430 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/sonar status --porcelain -b) successfully finished
+2023-10-06 23:00:16,466 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/sonar branch --list --no-color) successfully finished
+2023-10-06 23:00:16,504 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/sonar remote get-url origin) successfully finished
+2023-10-06 23:00:17,632 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/sonar fetch origin --prune --progress) successfully finished
+2023-10-06 23:00:17,652 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/sonar merge-base --is-ancestor HEAD origin/main) successfully finished
+2023-10-06 23:00:17,670 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/sonar rev-parse HEAD) successfully finished
+2023-10-06 23:00:17,691 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/sonar describe --always --tags --long --dirty --abbrev=8) successfully finished
+2023-10-06 23:00:17,710 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/sonar rev-parse origin/main) successfully finished
+2023-10-06 23:00:17,737 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/sonar describe origin/main --always --tags --long --abbrev=8) successfully finished
+2023-10-06 23:00:17,769 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/sonar rev-list HEAD..7962a1225ad88fa2a642ae2b378637491b4b2710 --count) successfully finished
+2023-10-06 23:00:17,772 [git_deploy.py:log_repo_info()] - Git Repo sonar Detected:
+Owner: mainsail-crew
+Repository Name: sonar
+Path: /home/alchemist/sonar
+Remote: origin
+Branch: main
+Remote URL: https://github.com/mainsail-crew/sonar.git
+Recovery URL: https://github.com/mainsail-crew/sonar.git
+Current Commit SHA: 7962a1225ad88fa2a642ae2b378637491b4b2710
+Upstream Commit SHA: 7962a1225ad88fa2a642ae2b378637491b4b2710
+Current Version: v0.1.2-0-g7962a122
+Upstream Version: v0.1.2-0-g7962a122
+Rollback Commit: 7962a1225ad88fa2a642ae2b378637491b4b2710
+Rollback Branch: main
+Rollback Version: v0.1.2-0-g7962a12
+Is Dirty: False
+Is Detached: False
+Is Shallow: False
+Commits Behind Count: 0
+Diverged: False
+2023-10-06 23:00:17,773 [base_deploy.py:log_info()] - Git Repo sonar: Channel: dev
+2023-10-06 23:00:17,773 [base_deploy.py:log_info()] - Git Repo sonar: Validity check for git repo passed
+2023-10-06 23:02:33,724 [authorization.py:_check_trusted_connection()] - Trusted Connection Detected, IP: 192.168.100.42
+2023-10-06 23:14:09,332 [app.py:prepare()] - Upload Request Received from 192.168.100.42
+2023-10-06 23:14:09,352 [app.py:post()] - Processing Uploaded File: crowsnest.conf
+2023-10-06 23:14:09,368 [app.py:log_request()] - 201 POST /server/files/upload (192.168.100.42) [_TRUSTED_USER_] 41.92ms
+2023-10-06 23:16:37,338 [app.py:prepare()] - Upload Request Received from 192.168.100.42
+2023-10-06 23:16:37,345 [app.py:post()] - Processing Uploaded File: crowsnest.conf
+2023-10-06 23:16:37,363 [app.py:log_request()] - 201 POST /server/files/upload (192.168.100.42) [_TRUSTED_USER_] 27.34ms
+2023-10-06 23:29:02,308 [app.py:prepare()] - Upload Request Received from 192.168.100.42
+2023-10-06 23:29:02,317 [app.py:post()] - Processing Uploaded File: crowsnest.conf
+2023-10-06 23:29:02,336 [app.py:log_request()] - 201 POST /server/files/upload (192.168.100.42) [_TRUSTED_USER_] 30.74ms
+2023-10-06 23:31:39,631 [klippy_connection.py:_process_status_update()] - Klippy has shutdown
+2023-10-06 23:31:39,646 [proc_stats.py:_handle_shutdown()] - 
+Moonraker System Usage Statistics:
+System Time: 1696595469.836106, Usage: 2.45%, Memory: 24932 kB
+System Time: 1696595470.838110, Usage: 2.5%, Memory: 24932 kB
+System Time: 1696595471.838623, Usage: 2.79%, Memory: 24932 kB
+System Time: 1696595472.840251, Usage: 2.52%, Memory: 24932 kB
+System Time: 1696595473.841513, Usage: 2.43%, Memory: 24932 kB
+System Time: 1696595474.843231, Usage: 2.45%, Memory: 24932 kB
+System Time: 1696595475.843667, Usage: 2.45%, Memory: 24932 kB
+System Time: 1696595476.845299, Usage: 2.45%, Memory: 24932 kB
+System Time: 1696595477.846700, Usage: 6.05%, Memory: 24932 kB
+System Time: 1696595478.847650, Usage: 2.58%, Memory: 24932 kB
+System Time: 1696595479.848204, Usage: 2.44%, Memory: 24932 kB
+System Time: 1696595480.849602, Usage: 2.43%, Memory: 24932 kB
+System Time: 1696595481.850882, Usage: 2.8%, Memory: 24932 kB
+System Time: 1696595482.853621, Usage: 2.43%, Memory: 24932 kB
+System Time: 1696595483.854464, Usage: 2.4%, Memory: 24932 kB
+System Time: 1696595484.855920, Usage: 2.46%, Memory: 24932 kB
+System Time: 1696595485.856358, Usage: 2.39%, Memory: 24932 kB
+System Time: 1696595486.857719, Usage: 2.45%, Memory: 24932 kB
+System Time: 1696595487.859234, Usage: 5.97%, Memory: 24932 kB
+System Time: 1696595488.860214, Usage: 2.51%, Memory: 24932 kB
+System Time: 1696595489.861002, Usage: 2.38%, Memory: 24932 kB
+System Time: 1696595490.861842, Usage: 2.49%, Memory: 24932 kB
+System Time: 1696595491.863554, Usage: 2.74%, Memory: 24932 kB
+System Time: 1696595492.866732, Usage: 2.3%, Memory: 24932 kB
+System Time: 1696595493.868359, Usage: 2.31%, Memory: 24932 kB
+System Time: 1696595494.866060, Usage: 2.49%, Memory: 24932 kB
+System Time: 1696595495.872488, Usage: 1.85%, Memory: 24932 kB
+System Time: 1696595496.870074, Usage: 2.2%, Memory: 24932 kB
+System Time: 1696595497.873394, Usage: 5.76%, Memory: 24932 kB
+System Time: 1696595498.874380, Usage: 2.42%, Memory: 24932 kB
+CPU Temperature: 44.008
+2023-10-06 23:31:39,672 [proc_stats.py:_handle_shutdown()] - Throttled Flags: 

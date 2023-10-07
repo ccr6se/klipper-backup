@@ -1,0 +1,75 @@
+2023-10-07 14:42:23,910   WARNING  obico.app - auth_token not configured. Retry after 2s
+2023-10-07 14:42:25,921   WARNING  obico.app - auth_token not configured. Retry after 2s
+2023-10-07 14:42:27,930   WARNING  obico.app - auth_token not configured. Retry after 2s
+2023-10-07 14:42:29,939   WARNING  obico.app - auth_token not configured. Retry after 2s
+2023-10-07 14:42:31,948   WARNING  obico.app - auth_token not configured. Retry after 2s
+2023-10-07 14:42:33,958   WARNING  obico.app - auth_token not configured. Retry after 2s
+2023-10-07 14:42:35,967   WARNING  obico.app - auth_token not configured. Retry after 2s
+2023-10-07 14:42:37,976   WARNING  obico.app - auth_token not configured. Retry after 2s
+2023-10-07 14:42:39,985   WARNING  obico.app - auth_token not configured. Retry after 2s
+2023-10-07 14:42:41,994   WARNING  obico.app - auth_token not configured. Retry after 2s
+2023-10-07 14:42:44,299      INFO  obico.app - starting moonraker-obico (v1.4.13)
+2023-10-07 14:42:44,302      INFO  obico.app - Fetching linked printer...
+2023-10-07 14:42:44,647      INFO  obico.app - Linked printer: {'is_pro': False, 'id': 155429, 'name': 'My Awesome Cloud Printer'}
+2023-10-07 14:42:45,096   WARNING  obico.app - Connections not ready. Trying again in 1s...
+2023-10-07 14:42:45,099   WARNING  obico.moonraker_conn - api key is unset, trying to fetch one
+2023-10-07 14:42:45,316      INFO  obico.moonraker_conn - connection is open
+2023-10-07 14:42:45,560      INFO  obico.moonraker_conn - Klippy ready
+2023-10-07 14:42:46,323      INFO  obico.app - detected state change: Offline -> Operational
+2023-10-07 14:42:46,328      INFO  obico.janus - Starting webcam streamer
+2023-10-07 14:42:47,351      INFO  backoff - Backing off wait_for_janus(...) for 0.6s (ConnectionRefusedError: [Errno 111] Connection refused)
+2023-10-07 14:47:05,383      INFO  obico.app - starting moonraker-obico (v1.4.13)
+2023-10-07 14:47:05,387      INFO  obico.app - Fetching linked printer...
+2023-10-07 14:47:05,848      INFO  obico.app - Linked printer: {'is_pro': False, 'id': 155429, 'name': 'CR6SE Printer'}
+2023-10-07 14:47:06,630   WARNING  obico.moonraker_conn - api key is unset, trying to fetch one
+2023-10-07 14:47:06,631   WARNING  obico.app - Connections not ready. Trying again in 1s...
+2023-10-07 14:47:06,847      INFO  backoff - Backing off ensure_api_key(...) for 0.1s (requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=7125): Max retries exceeded with url: /access/api_key (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x75ab4cb8>: Failed to establish a new connection: [Errno 111] Connection refused')))
+2023-10-07 14:47:06,952   WARNING  obico.moonraker_conn - api key is unset, trying to fetch one
+2023-10-07 14:47:06,965      INFO  backoff - Backing off ensure_api_key(...) for 0.2s (requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=7125): Max retries exceeded with url: /access/api_key (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x74884190>: Failed to establish a new connection: [Errno 111] Connection refused')))
+2023-10-07 14:47:07,164   WARNING  obico.moonraker_conn - api key is unset, trying to fetch one
+2023-10-07 14:47:07,175      INFO  backoff - Backing off ensure_api_key(...) for 3.6s (requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=7125): Max retries exceeded with url: /access/api_key (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x748846e8>: Failed to establish a new connection: [Errno 111] Connection refused')))
+2023-10-07 14:47:07,647   WARNING  obico.app - Connections not ready. Trying again in 1s...
+2023-10-07 14:47:08,650   WARNING  obico.app - Connections not ready. Trying again in 1s...
+2023-10-07 14:47:09,652   WARNING  obico.app - Connections not ready. Trying again in 1s...
+2023-10-07 14:47:10,654   WARNING  obico.app - Connections not ready. Trying again in 1s...
+2023-10-07 14:47:10,777   WARNING  obico.moonraker_conn - api key is unset, trying to fetch one
+2023-10-07 14:47:10,799      INFO  backoff - Backing off ensure_api_key(...) for 4.2s (requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=7125): Max retries exceeded with url: /access/api_key (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x74884c40>: Failed to establish a new connection: [Errno 111] Connection refused')))
+2023-10-07 14:47:11,657   WARNING  obico.app - Connections not ready. Trying again in 1s...
+2023-10-07 14:47:12,659   WARNING  obico.app - Connections not ready. Trying again in 1s...
+2023-10-07 14:47:13,662   WARNING  obico.app - Connections not ready. Trying again in 1s...
+2023-10-07 14:47:14,664   WARNING  obico.app - Connections not ready. Trying again in 1s...
+2023-10-07 14:47:15,000   WARNING  obico.moonraker_conn - api key is unset, trying to fetch one
+2023-10-07 14:47:15,038      INFO  obico.moonraker_conn - connection is open
+2023-10-07 14:47:15,208      INFO  obico.moonraker_conn - Klippy ready
+2023-10-07 14:47:15,749   WARNING  obico.app - error response from moonraker, Event(name='message', data={'jsonrpc': '2.0', 'error': {'code': 400, 'message': "{'error': 'WebRequestError', 'message': 'Invalid argument'}"}, 'id': 72606}, sender='moonrakerconn')
+2023-10-07 14:47:15,751      INFO  obico.janus - Starting webcam streamer
+2023-10-07 14:47:15,754      INFO  obico.app - detected state change: Offline -> Operational
+2023-10-07 14:47:16,784      INFO  backoff - Backing off wait_for_janus(...) for 0.3s (ConnectionRefusedError: [Errno 111] Connection refused)
+2023-10-07 17:11:11,729      INFO  obico.app - detected state change: Operational -> Offline
+2023-10-07 17:11:40,198      INFO  obico.app - detected state change: Offline -> Operational
+2023-10-07 17:12:03,989      INFO  obico.app - detected state change: Operational -> Offline
+2023-10-07 17:12:10,299      INFO  obico.app - detected state change: Offline -> Operational
+2023-10-07 21:04:44,103      INFO  obico.app - detected state change: Operational -> Offline
+2023-10-07 21:04:56,535     ERROR  obico.utils - 
+Traceback (most recent call last):
+  File "/home/alchemist/moonraker-obico/moonraker_obico/app.py", line 215, in event_loop
+    self._process_event(event)
+  File "/home/alchemist/moonraker-obico/moonraker_obico/app.py", line 227, in _process_event
+    self._on_moonrakerconn_event(event)
+  File "/home/alchemist/moonraker-obico/moonraker_obico/app.py", line 267, in _on_moonrakerconn_event
+    self._received_klippy_update(event.data['result'])
+KeyError: 'result'
+2023-10-07 21:05:26,552     ERROR  obico.utils - 
+Traceback (most recent call last):
+  File "/home/alchemist/moonraker-obico/moonraker_obico/app.py", line 215, in event_loop
+    self._process_event(event)
+  File "/home/alchemist/moonraker-obico/moonraker_obico/app.py", line 227, in _process_event
+    self._on_moonrakerconn_event(event)
+  File "/home/alchemist/moonraker-obico/moonraker_obico/app.py", line 267, in _on_moonrakerconn_event
+    self._received_klippy_update(event.data['result'])
+KeyError: 'result'
+2023-10-07 21:05:56,628      INFO  obico.app - detected state change: Offline -> Operational
+2023-10-07 21:15:36,429      INFO  obico.app - detected state change: Operational -> Offline
+2023-10-07 21:15:57,559      INFO  obico.app - detected state change: Offline -> Operational
+2023-10-07 21:30:21,719      INFO  obico.app - detected state change: Operational -> Offline
+2023-10-07 21:30:28,611      INFO  obico.app - detected state change: Offline -> Operational
