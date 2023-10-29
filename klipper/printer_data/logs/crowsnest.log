@@ -173,3 +173,347 @@
 [10/07/23 14:47:12] crowsnest: V4L2 Control: No parameters set for [cam 1]. Skipped.
 [10/07/23 14:47:14] crowsnest: Starting ustreamer with Device /dev/video0 ...
 [10/07/23 14:47:15] crowsnest:  ... Done!
+[10/07/23 21:52:58] crowsnest: WATCHDOG: Lost Device: '/dev/video0'
+[10/12/23 17:31:59] crowsnest: crowsnest - A webcam Service for multiple Cams and Stream Services.
+[10/12/23 17:31:59] crowsnest: Version: v4.0.2
+[10/12/23 17:31:59] crowsnest: Prepare Startup ...
+[10/12/23 17:31:59] crowsnest: INFO: Host information:
+[10/12/23 17:31:59] crowsnest: Host Info: Distribution: Raspbian GNU/Linux 11 (bullseye)
+[10/12/23 17:31:59] crowsnest: Host Info: Release: MainsailOS release 1.2.1 (bullseye)
+[10/12/23 17:31:59] crowsnest: Host Info: Kernel: Linux 6.1.21-v7+ armv7l
+[10/12/23 17:31:59] crowsnest: Host Info: Model:  Raspberry Pi Zero 2 W Rev 1.0
+[10/12/23 17:31:59] crowsnest: Host Info: Available CPU Cores: 4
+[10/12/23 17:31:59] crowsnest: Host Info: Available Memory: 339540 kB
+[10/12/23 17:31:59] crowsnest: Host Info: Diskspace (avail. / total): 8.8G / 15G
+[10/12/23 17:31:59] crowsnest: INFO: Checking Dependencys
+[10/12/23 17:31:59] crowsnest: Dependency: 'crudini' found in /usr/bin/crudini.
+[10/12/23 17:31:59] crowsnest: Dependency: 'find' found in /usr/bin/find.
+[10/12/23 17:31:59] crowsnest: Dependency: 'xargs' found in /usr/bin/xargs.
+[10/12/23 17:32:00] crowsnest: Dependency: 'ustreamer' found in bin/ustreamer/ustreamer.
+[10/12/23 17:32:00] crowsnest: Dependency: 'camera-streamer' found in bin/camera-streamer/camera-streamer.
+[10/12/23 17:32:00] crowsnest: Version Control: ustreamer is up to date. (v5.43)
+[10/12/23 17:32:03] crowsnest: Version Control: camera-streamer is up to date. ((ef8f6a4))
+[10/12/23 17:32:03] crowsnest: INFO: Print Configfile: '/home/alchemist/printer_data/config/crowsnest.conf'
+[10/12/23 17:32:03] crowsnest:		[crowsnest]
+[10/12/23 17:32:03] crowsnest:		log_path: /home/alchemist/printer_data/logs/crowsnest.log
+[10/12/23 17:32:03] crowsnest:		log_level: verbose
+[10/12/23 17:32:03] crowsnest:		delete_log: false
+[10/12/23 17:32:03] crowsnest:		no_proxy: false
+[10/12/23 17:32:03] crowsnest:		
+[10/12/23 17:32:03] crowsnest:		[cam 1]
+[10/12/23 17:32:03] crowsnest:		mode: ustreamer
+[10/12/23 17:32:03] crowsnest:		
+[10/12/23 17:32:03] crowsnest:		enable_rtsp: false
+[10/12/23 17:32:03] crowsnest:		rtsp_port: 8554
+[10/12/23 17:32:03] crowsnest:		port: 8080
+[10/12/23 17:32:03] crowsnest:		device: /dev/video0
+[10/12/23 17:32:03] crowsnest:		resolution: 640x480
+[10/12/23 17:32:03] crowsnest:		max_fps: 15
+[10/12/23 17:32:03] crowsnest: INFO: Detect available Devices
+[10/12/23 17:32:03] crowsnest: INFO: Found 1 total available Device(s)
+[10/12/23 17:32:03] crowsnest: INFO: Found 1 available v4l2 (UVC) camera(s)
+[10/12/23 17:32:03] crowsnest: /dev/v4l/by-id/usb-Microsoft_Microsoft®_LifeCam_VX-2000-video-index0 -> /dev/video0
+[10/12/23 17:32:03] crowsnest: Supported Formats:
+[10/12/23 17:32:03] crowsnest:		[0]: 'MJPG' (Motion-JPEG, compressed)
+[10/12/23 17:32:03] crowsnest:		Size: Discrete 640x480
+[10/12/23 17:32:03] crowsnest:		Interval: Discrete 0.067s (15.000 fps)
+[10/12/23 17:32:03] crowsnest:		Size: Discrete 352x288
+[10/12/23 17:32:03] crowsnest:		Interval: Discrete 0.033s (30.000 fps)
+[10/12/23 17:32:03] crowsnest:		Size: Discrete 320x240
+[10/12/23 17:32:03] crowsnest:		Interval: Discrete 0.033s (30.000 fps)
+[10/12/23 17:32:03] crowsnest:		Size: Discrete 176x144
+[10/12/23 17:32:03] crowsnest:		Interval: Discrete 0.033s (30.000 fps)
+[10/12/23 17:32:03] crowsnest:		Size: Discrete 160x120
+[10/12/23 17:32:03] crowsnest:		Interval: Discrete 0.033s (30.000 fps)
+[10/12/23 17:32:03] crowsnest: Supported Controls:
+[10/12/23 17:32:03] crowsnest:		
+[10/12/23 17:32:03] crowsnest:		User Controls
+[10/12/23 17:32:03] crowsnest:		
+[10/12/23 17:32:03] crowsnest:		brightness 0x00980900 (int)    : min=-16 max=16 step=1 default=0 value=0
+[10/12/23 17:32:03] crowsnest:		contrast 0x00980901 (int)    : min=1 max=32 step=1 default=16 value=16
+[10/12/23 17:32:03] crowsnest:		saturation 0x00980902 (int)    : min=0 max=60 step=1 default=18 value=18
+[10/12/23 17:32:03] crowsnest:		hue 0x00980903 (int)    : min=-45 max=45 step=1 default=0 value=0
+[10/12/23 17:32:03] crowsnest:		white_balance_automatic 0x0098090c (bool)   : default=1 value=1
+[10/12/23 17:32:03] crowsnest:		gamma 0x00980910 (int)    : min=100 max=200 step=10 default=150 value=150
+[10/12/23 17:32:03] crowsnest:		power_line_frequency 0x00980918 (menu)   : min=0 max=2 default=2 value=2
+[10/12/23 17:32:03] crowsnest:		0: Disabled
+[10/12/23 17:32:03] crowsnest:		1: 50 Hz
+[10/12/23 17:32:03] crowsnest:		2: 60 Hz
+[10/12/23 17:32:03] crowsnest:		white_balance_temperature 0x0098091a (int)    : min=2800 max=6500 step=1850 default=4650 value=4650 flags=inactive
+[10/12/23 17:32:03] crowsnest:		sharpness 0x0098091b (int)    : min=0 max=15 step=1 default=5 value=5
+[10/12/23 17:32:03] crowsnest:		backlight_compensation 0x0098091c (int)    : min=0 max=2 step=1 default=1 value=1
+[10/12/23 17:32:03] crowsnest:		
+[10/12/23 17:32:03] crowsnest:		Camera Controls
+[10/12/23 17:32:03] crowsnest:		
+[10/12/23 17:32:03] crowsnest:		auto_exposure 0x009a0901 (menu)   : min=0 max=3 default=3 value=3
+[10/12/23 17:32:03] crowsnest:		1: Manual Mode
+[10/12/23 17:32:03] crowsnest:		3: Aperture Priority Mode
+[10/12/23 17:32:03] crowsnest:		exposure_time_absolute 0x009a0902 (int)    : min=2 max=20 step=2 default=4 value=4 flags=inactive
+[10/12/23 17:32:03] crowsnest:		exposure_dynamic_framerate 0x009a0903 (bool)   : default=0 value=1
+[10/12/23 17:32:03] crowsnest:		pan_absolute 0x009a0908 (int)    : min=-36000 max=36000 step=7200 default=0 value=0
+[10/12/23 17:32:03] crowsnest:		tilt_absolute 0x009a0909 (int)    : min=-36000 max=36000 step=7200 default=0 value=0
+[10/12/23 17:32:03] crowsnest:		zoom_absolute 0x009a090d (int)    : min=0 max=10 step=1 default=0 value=0
+[10/12/23 17:32:03] crowsnest:		privacy 0x009a0910 (bool)   : default=0 value=0
+[10/12/23 17:32:03] crowsnest: Try to start configured Cams / Services...
+[10/12/23 17:32:06] crowsnest: INFO: Configuration of Section [cam 1] looks good. Continue ...
+[10/12/23 17:32:07] crowsnest: V4L2 Control: No parameters set for [cam 1]. Skipped.
+[10/12/23 17:32:10] crowsnest: Starting ustreamer with Device /dev/video0 ...
+[10/12/23 17:32:11] crowsnest:  ... Done!
+[10/20/23 07:29:57] crowsnest: crowsnest - A webcam Service for multiple Cams and Stream Services.
+[10/20/23 07:29:58] crowsnest: Version: v4.0.2
+[10/20/23 07:29:58] crowsnest: Prepare Startup ...
+[10/20/23 07:29:58] crowsnest: INFO: Host information:
+[10/20/23 07:29:58] crowsnest: Host Info: Distribution: Raspbian GNU/Linux 11 (bullseye)
+[10/20/23 07:29:58] crowsnest: Host Info: Release: MainsailOS release 1.2.1 (bullseye)
+[10/20/23 07:29:58] crowsnest: Host Info: Kernel: Linux 6.1.21-v7+ armv7l
+[10/20/23 07:29:58] crowsnest: Host Info: Model:  Raspberry Pi Zero 2 W Rev 1.0
+[10/20/23 07:29:58] crowsnest: Host Info: Available CPU Cores: 4
+[10/20/23 07:29:58] crowsnest: Host Info: Available Memory: 339540 kB
+[10/20/23 07:29:58] crowsnest: Host Info: Diskspace (avail. / total): 8.7G / 15G
+[10/20/23 07:29:58] crowsnest: INFO: Checking Dependencys
+[10/20/23 07:29:58] crowsnest: Dependency: 'crudini' found in /usr/bin/crudini.
+[10/20/23 07:29:58] crowsnest: Dependency: 'find' found in /usr/bin/find.
+[10/20/23 07:29:58] crowsnest: Dependency: 'xargs' found in /usr/bin/xargs.
+[10/20/23 07:29:58] crowsnest: Dependency: 'ustreamer' found in bin/ustreamer/ustreamer.
+[10/20/23 07:29:58] crowsnest: Dependency: 'camera-streamer' found in bin/camera-streamer/camera-streamer.
+[10/20/23 07:29:58] crowsnest: Version Control: ustreamer is up to date. (v5.43)
+[10/20/23 07:30:01] crowsnest: Version Control: camera-streamer is up to date. ((ef8f6a4))
+[10/20/23 07:30:01] crowsnest: INFO: Print Configfile: '/home/alchemist/printer_data/config/crowsnest.conf'
+[10/20/23 07:30:01] crowsnest:		[crowsnest]
+[10/20/23 07:30:01] crowsnest:		log_path: /home/alchemist/printer_data/logs/crowsnest.log
+[10/20/23 07:30:01] crowsnest:		log_level: verbose
+[10/20/23 07:30:01] crowsnest:		delete_log: false
+[10/20/23 07:30:01] crowsnest:		no_proxy: false
+[10/20/23 07:30:01] crowsnest:		
+[10/20/23 07:30:01] crowsnest:		[cam 1]
+[10/20/23 07:30:01] crowsnest:		mode: ustreamer
+[10/20/23 07:30:01] crowsnest:		
+[10/20/23 07:30:01] crowsnest:		enable_rtsp: false
+[10/20/23 07:30:01] crowsnest:		rtsp_port: 8554
+[10/20/23 07:30:01] crowsnest:		port: 8080
+[10/20/23 07:30:01] crowsnest:		device: /dev/video0
+[10/20/23 07:30:01] crowsnest:		resolution: 640x480
+[10/20/23 07:30:01] crowsnest:		max_fps: 15
+[10/20/23 07:30:01] crowsnest: INFO: Detect available Devices
+[10/20/23 07:30:02] crowsnest: INFO: Found 1 total available Device(s)
+[10/20/23 07:30:02] crowsnest: INFO: Found 1 available v4l2 (UVC) camera(s)
+[10/20/23 07:30:02] crowsnest: /dev/v4l/by-id/usb-Microsoft_Microsoft®_LifeCam_VX-2000-video-index0 -> /dev/video0
+[10/20/23 07:30:02] crowsnest: Supported Formats:
+[10/20/23 07:30:02] crowsnest:		[0]: 'MJPG' (Motion-JPEG, compressed)
+[10/20/23 07:30:02] crowsnest:		Size: Discrete 640x480
+[10/20/23 07:30:02] crowsnest:		Interval: Discrete 0.067s (15.000 fps)
+[10/20/23 07:30:02] crowsnest:		Size: Discrete 352x288
+[10/20/23 07:30:02] crowsnest:		Interval: Discrete 0.033s (30.000 fps)
+[10/20/23 07:30:02] crowsnest:		Size: Discrete 320x240
+[10/20/23 07:30:02] crowsnest:		Interval: Discrete 0.033s (30.000 fps)
+[10/20/23 07:30:02] crowsnest:		Size: Discrete 176x144
+[10/20/23 07:30:02] crowsnest:		Interval: Discrete 0.033s (30.000 fps)
+[10/20/23 07:30:02] crowsnest:		Size: Discrete 160x120
+[10/20/23 07:30:02] crowsnest:		Interval: Discrete 0.033s (30.000 fps)
+[10/20/23 07:30:02] crowsnest: Supported Controls:
+[10/20/23 07:30:02] crowsnest:		
+[10/20/23 07:30:02] crowsnest:		User Controls
+[10/20/23 07:30:02] crowsnest:		
+[10/20/23 07:30:02] crowsnest:		brightness 0x00980900 (int)    : min=-16 max=16 step=1 default=0 value=0
+[10/20/23 07:30:02] crowsnest:		contrast 0x00980901 (int)    : min=1 max=32 step=1 default=16 value=16
+[10/20/23 07:30:02] crowsnest:		saturation 0x00980902 (int)    : min=0 max=60 step=1 default=18 value=18
+[10/20/23 07:30:02] crowsnest:		hue 0x00980903 (int)    : min=-45 max=45 step=1 default=0 value=0
+[10/20/23 07:30:02] crowsnest:		white_balance_automatic 0x0098090c (bool)   : default=1 value=1
+[10/20/23 07:30:02] crowsnest:		gamma 0x00980910 (int)    : min=100 max=200 step=10 default=150 value=150
+[10/20/23 07:30:02] crowsnest:		power_line_frequency 0x00980918 (menu)   : min=0 max=2 default=2 value=2
+[10/20/23 07:30:02] crowsnest:		0: Disabled
+[10/20/23 07:30:02] crowsnest:		1: 50 Hz
+[10/20/23 07:30:02] crowsnest:		2: 60 Hz
+[10/20/23 07:30:02] crowsnest:		white_balance_temperature 0x0098091a (int)    : min=2800 max=6500 step=1850 default=4650 value=4650 flags=inactive
+[10/20/23 07:30:02] crowsnest:		sharpness 0x0098091b (int)    : min=0 max=15 step=1 default=5 value=5
+[10/20/23 07:30:02] crowsnest:		backlight_compensation 0x0098091c (int)    : min=0 max=2 step=1 default=1 value=1
+[10/20/23 07:30:02] crowsnest:		
+[10/20/23 07:30:02] crowsnest:		Camera Controls
+[10/20/23 07:30:02] crowsnest:		
+[10/20/23 07:30:02] crowsnest:		auto_exposure 0x009a0901 (menu)   : min=0 max=3 default=3 value=3
+[10/20/23 07:30:02] crowsnest:		1: Manual Mode
+[10/20/23 07:30:02] crowsnest:		3: Aperture Priority Mode
+[10/20/23 07:30:02] crowsnest:		exposure_time_absolute 0x009a0902 (int)    : min=2 max=20 step=2 default=4 value=4 flags=inactive
+[10/20/23 07:30:02] crowsnest:		exposure_dynamic_framerate 0x009a0903 (bool)   : default=0 value=1
+[10/20/23 07:30:02] crowsnest:		pan_absolute 0x009a0908 (int)    : min=-36000 max=36000 step=7200 default=0 value=0
+[10/20/23 07:30:02] crowsnest:		tilt_absolute 0x009a0909 (int)    : min=-36000 max=36000 step=7200 default=0 value=0
+[10/20/23 07:30:02] crowsnest:		zoom_absolute 0x009a090d (int)    : min=0 max=10 step=1 default=0 value=0
+[10/20/23 07:30:02] crowsnest:		privacy 0x009a0910 (bool)   : default=0 value=0
+[10/20/23 07:30:02] crowsnest: Try to start configured Cams / Services...
+[10/20/23 07:30:05] crowsnest: INFO: Configuration of Section [cam 1] looks good. Continue ...
+[10/20/23 07:30:06] crowsnest: V4L2 Control: No parameters set for [cam 1]. Skipped.
+[10/20/23 07:30:09] crowsnest: Starting ustreamer with Device /dev/video0 ...
+[10/20/23 07:30:10] crowsnest:  ... Done!
+[10/29/23 13:42:39] crowsnest: crowsnest - A webcam Service for multiple Cams and Stream Services.
+[10/29/23 13:42:39] crowsnest: Version: v4.0.2
+[10/29/23 13:42:39] crowsnest: Prepare Startup ...
+[10/29/23 13:42:39] crowsnest: INFO: Host information:
+[10/29/23 13:42:39] crowsnest: Host Info: Distribution: Raspbian GNU/Linux 11 (bullseye)
+[10/29/23 13:42:39] crowsnest: Host Info: Release: MainsailOS release 1.2.1 (bullseye)
+[10/29/23 13:42:39] crowsnest: Host Info: Kernel: Linux 6.1.21-v7+ armv7l
+[10/29/23 13:42:39] crowsnest: Host Info: Model:  Raspberry Pi Zero 2 W Rev 1.0
+[10/29/23 13:42:39] crowsnest: Host Info: Available CPU Cores: 4
+[10/29/23 13:42:39] crowsnest: Host Info: Available Memory: 339540 kB
+[10/29/23 13:42:39] crowsnest: Host Info: Diskspace (avail. / total): 8.7G / 15G
+[10/29/23 13:42:39] crowsnest: INFO: Checking Dependencys
+[10/29/23 13:42:39] crowsnest: Dependency: 'crudini' found in /usr/bin/crudini.
+[10/29/23 13:42:39] crowsnest: Dependency: 'find' found in /usr/bin/find.
+[10/29/23 13:42:39] crowsnest: Dependency: 'xargs' found in /usr/bin/xargs.
+[10/29/23 13:42:39] crowsnest: Dependency: 'ustreamer' found in bin/ustreamer/ustreamer.
+[10/29/23 13:42:39] crowsnest: Dependency: 'camera-streamer' found in bin/camera-streamer/camera-streamer.
+[10/29/23 13:42:40] crowsnest: Version Control: ustreamer is up to date. (v5.43)
+[10/29/23 13:42:42] crowsnest: Version Control: camera-streamer is up to date. ((ef8f6a4))
+[10/29/23 13:42:42] crowsnest: INFO: Print Configfile: '/home/alchemist/printer_data/config/crowsnest.conf'
+[10/29/23 13:42:42] crowsnest:		[crowsnest]
+[10/29/23 13:42:42] crowsnest:		log_path: /home/alchemist/printer_data/logs/crowsnest.log
+[10/29/23 13:42:42] crowsnest:		log_level: verbose
+[10/29/23 13:42:42] crowsnest:		delete_log: false
+[10/29/23 13:42:42] crowsnest:		no_proxy: false
+[10/29/23 13:42:42] crowsnest:		
+[10/29/23 13:42:42] crowsnest:		[cam 1]
+[10/29/23 13:42:42] crowsnest:		mode: ustreamer
+[10/29/23 13:42:42] crowsnest:		
+[10/29/23 13:42:42] crowsnest:		enable_rtsp: false
+[10/29/23 13:42:42] crowsnest:		rtsp_port: 8554
+[10/29/23 13:42:42] crowsnest:		port: 8080
+[10/29/23 13:42:42] crowsnest:		device: /dev/video0
+[10/29/23 13:42:42] crowsnest:		resolution: 640x480
+[10/29/23 13:42:42] crowsnest:		max_fps: 15
+[10/29/23 13:42:42] crowsnest: INFO: Detect available Devices
+[10/29/23 13:42:43] crowsnest: INFO: Found 1 total available Device(s)
+[10/29/23 13:42:43] crowsnest: INFO: Found 1 available v4l2 (UVC) camera(s)
+[10/29/23 13:42:43] crowsnest: /dev/v4l/by-id/usb-Microsoft_Microsoft®_LifeCam_VX-2000-video-index0 -> /dev/video0
+[10/29/23 13:42:43] crowsnest: Supported Formats:
+[10/29/23 13:42:43] crowsnest:		[0]: 'MJPG' (Motion-JPEG, compressed)
+[10/29/23 13:42:43] crowsnest:		Size: Discrete 640x480
+[10/29/23 13:42:43] crowsnest:		Interval: Discrete 0.067s (15.000 fps)
+[10/29/23 13:42:43] crowsnest:		Size: Discrete 352x288
+[10/29/23 13:42:43] crowsnest:		Interval: Discrete 0.033s (30.000 fps)
+[10/29/23 13:42:43] crowsnest:		Size: Discrete 320x240
+[10/29/23 13:42:43] crowsnest:		Interval: Discrete 0.033s (30.000 fps)
+[10/29/23 13:42:43] crowsnest:		Size: Discrete 176x144
+[10/29/23 13:42:43] crowsnest:		Interval: Discrete 0.033s (30.000 fps)
+[10/29/23 13:42:43] crowsnest:		Size: Discrete 160x120
+[10/29/23 13:42:43] crowsnest:		Interval: Discrete 0.033s (30.000 fps)
+[10/29/23 13:42:43] crowsnest: Supported Controls:
+[10/29/23 13:42:43] crowsnest:		
+[10/29/23 13:42:43] crowsnest:		User Controls
+[10/29/23 13:42:43] crowsnest:		
+[10/29/23 13:42:43] crowsnest:		brightness 0x00980900 (int)    : min=-16 max=16 step=1 default=0 value=0
+[10/29/23 13:42:43] crowsnest:		contrast 0x00980901 (int)    : min=1 max=32 step=1 default=16 value=16
+[10/29/23 13:42:43] crowsnest:		saturation 0x00980902 (int)    : min=0 max=60 step=1 default=18 value=18
+[10/29/23 13:42:43] crowsnest:		hue 0x00980903 (int)    : min=-45 max=45 step=1 default=0 value=0
+[10/29/23 13:42:43] crowsnest:		white_balance_automatic 0x0098090c (bool)   : default=1 value=1
+[10/29/23 13:42:43] crowsnest:		gamma 0x00980910 (int)    : min=100 max=200 step=10 default=150 value=150
+[10/29/23 13:42:43] crowsnest:		power_line_frequency 0x00980918 (menu)   : min=0 max=2 default=2 value=2
+[10/29/23 13:42:43] crowsnest:		0: Disabled
+[10/29/23 13:42:43] crowsnest:		1: 50 Hz
+[10/29/23 13:42:43] crowsnest:		2: 60 Hz
+[10/29/23 13:42:43] crowsnest:		white_balance_temperature 0x0098091a (int)    : min=2800 max=6500 step=1850 default=4650 value=4650 flags=inactive
+[10/29/23 13:42:43] crowsnest:		sharpness 0x0098091b (int)    : min=0 max=15 step=1 default=5 value=5
+[10/29/23 13:42:43] crowsnest:		backlight_compensation 0x0098091c (int)    : min=0 max=2 step=1 default=1 value=1
+[10/29/23 13:42:43] crowsnest:		
+[10/29/23 13:42:43] crowsnest:		Camera Controls
+[10/29/23 13:42:43] crowsnest:		
+[10/29/23 13:42:43] crowsnest:		auto_exposure 0x009a0901 (menu)   : min=0 max=3 default=3 value=3
+[10/29/23 13:42:43] crowsnest:		1: Manual Mode
+[10/29/23 13:42:43] crowsnest:		3: Aperture Priority Mode
+[10/29/23 13:42:43] crowsnest:		exposure_time_absolute 0x009a0902 (int)    : min=2 max=20 step=2 default=4 value=4 flags=inactive
+[10/29/23 13:42:43] crowsnest:		exposure_dynamic_framerate 0x009a0903 (bool)   : default=0 value=1
+[10/29/23 13:42:43] crowsnest:		pan_absolute 0x009a0908 (int)    : min=-36000 max=36000 step=7200 default=0 value=0
+[10/29/23 13:42:43] crowsnest:		tilt_absolute 0x009a0909 (int)    : min=-36000 max=36000 step=7200 default=0 value=0
+[10/29/23 13:42:43] crowsnest:		zoom_absolute 0x009a090d (int)    : min=0 max=10 step=1 default=0 value=0
+[10/29/23 13:42:43] crowsnest:		privacy 0x009a0910 (bool)   : default=0 value=0
+[10/29/23 13:42:43] crowsnest: Try to start configured Cams / Services...
+[10/29/23 13:42:46] crowsnest: INFO: Configuration of Section [cam 1] looks good. Continue ...
+[10/29/23 13:42:47] crowsnest: V4L2 Control: No parameters set for [cam 1]. Skipped.
+[10/29/23 13:42:49] crowsnest: Starting ustreamer with Device /dev/video0 ...
+[10/29/23 13:42:50] crowsnest:  ... Done!
+[10/29/23 13:59:31] crowsnest: Shutdown or Killed by User!
+[10/29/23 13:59:31] crowsnest: Please come again :)
+[10/29/23 13:59:31] crowsnest: Goodbye...
+[10/29/23 13:59:49] crowsnest: crowsnest - A webcam Service for multiple Cams and Stream Services.
+[10/29/23 13:59:49] crowsnest: Version: v4.0.2
+[10/29/23 13:59:49] crowsnest: Prepare Startup ...
+[10/29/23 13:59:49] crowsnest: INFO: Host information:
+[10/29/23 13:59:49] crowsnest: Host Info: Distribution: Raspbian GNU/Linux 11 (bullseye)
+[10/29/23 13:59:49] crowsnest: Host Info: Release: MainsailOS release 1.2.1 (bullseye)
+[10/29/23 13:59:49] crowsnest: Host Info: Kernel: Linux 6.1.21-v7+ armv7l
+[10/29/23 13:59:49] crowsnest: Host Info: Model:  Raspberry Pi Zero 2 W Rev 1.0
+[10/29/23 13:59:49] crowsnest: Host Info: Available CPU Cores: 4
+[10/29/23 13:59:49] crowsnest: Host Info: Available Memory: 339540 kB
+[10/29/23 13:59:49] crowsnest: Host Info: Diskspace (avail. / total): 8.7G / 15G
+[10/29/23 13:59:49] crowsnest: INFO: Checking Dependencys
+[10/29/23 13:59:49] crowsnest: Dependency: 'crudini' found in /usr/bin/crudini.
+[10/29/23 13:59:49] crowsnest: Dependency: 'find' found in /usr/bin/find.
+[10/29/23 13:59:50] crowsnest: Dependency: 'xargs' found in /usr/bin/xargs.
+[10/29/23 13:59:50] crowsnest: Dependency: 'ustreamer' found in bin/ustreamer/ustreamer.
+[10/29/23 13:59:50] crowsnest: Dependency: 'camera-streamer' found in bin/camera-streamer/camera-streamer.
+[10/29/23 13:59:50] crowsnest: Version Control: ustreamer is up to date. (v5.43)
+[10/29/23 13:59:53] crowsnest: Version Control: camera-streamer is up to date. ((ef8f6a4))
+[10/29/23 13:59:53] crowsnest: INFO: Print Configfile: '/home/alchemist/printer_data/config/crowsnest.conf'
+[10/29/23 13:59:53] crowsnest:		[crowsnest]
+[10/29/23 13:59:53] crowsnest:		log_path: /home/alchemist/printer_data/logs/crowsnest.log
+[10/29/23 13:59:53] crowsnest:		log_level: verbose
+[10/29/23 13:59:53] crowsnest:		delete_log: false
+[10/29/23 13:59:53] crowsnest:		no_proxy: false
+[10/29/23 13:59:53] crowsnest:		
+[10/29/23 13:59:53] crowsnest:		[cam 1]
+[10/29/23 13:59:53] crowsnest:		mode: ustreamer
+[10/29/23 13:59:53] crowsnest:		
+[10/29/23 13:59:53] crowsnest:		enable_rtsp: false
+[10/29/23 13:59:53] crowsnest:		rtsp_port: 8554
+[10/29/23 13:59:53] crowsnest:		port: 8080
+[10/29/23 13:59:53] crowsnest:		device: /dev/video0
+[10/29/23 13:59:53] crowsnest:		resolution: 640x480
+[10/29/23 13:59:53] crowsnest:		max_fps: 15
+[10/29/23 13:59:53] crowsnest: INFO: Detect available Devices
+[10/29/23 13:59:53] crowsnest: INFO: Found 1 total available Device(s)
+[10/29/23 13:59:53] crowsnest: INFO: Found 1 available v4l2 (UVC) camera(s)
+[10/29/23 13:59:53] crowsnest: /dev/v4l/by-id/usb-Microsoft_Microsoft®_LifeCam_VX-2000-video-index0 -> /dev/video0
+[10/29/23 13:59:53] crowsnest: Supported Formats:
+[10/29/23 13:59:53] crowsnest:		[0]: 'MJPG' (Motion-JPEG, compressed)
+[10/29/23 13:59:53] crowsnest:		Size: Discrete 640x480
+[10/29/23 13:59:53] crowsnest:		Interval: Discrete 0.067s (15.000 fps)
+[10/29/23 13:59:53] crowsnest:		Size: Discrete 352x288
+[10/29/23 13:59:53] crowsnest:		Interval: Discrete 0.033s (30.000 fps)
+[10/29/23 13:59:53] crowsnest:		Size: Discrete 320x240
+[10/29/23 13:59:53] crowsnest:		Interval: Discrete 0.033s (30.000 fps)
+[10/29/23 13:59:53] crowsnest:		Size: Discrete 176x144
+[10/29/23 13:59:53] crowsnest:		Interval: Discrete 0.033s (30.000 fps)
+[10/29/23 13:59:53] crowsnest:		Size: Discrete 160x120
+[10/29/23 13:59:53] crowsnest:		Interval: Discrete 0.033s (30.000 fps)
+[10/29/23 13:59:53] crowsnest: Supported Controls:
+[10/29/23 13:59:53] crowsnest:		
+[10/29/23 13:59:53] crowsnest:		User Controls
+[10/29/23 13:59:53] crowsnest:		
+[10/29/23 13:59:53] crowsnest:		brightness 0x00980900 (int)    : min=-16 max=16 step=1 default=0 value=0
+[10/29/23 13:59:53] crowsnest:		contrast 0x00980901 (int)    : min=1 max=32 step=1 default=16 value=16
+[10/29/23 13:59:53] crowsnest:		saturation 0x00980902 (int)    : min=0 max=60 step=1 default=18 value=18
+[10/29/23 13:59:53] crowsnest:		hue 0x00980903 (int)    : min=-45 max=45 step=1 default=0 value=0
+[10/29/23 13:59:53] crowsnest:		white_balance_automatic 0x0098090c (bool)   : default=1 value=1
+[10/29/23 13:59:53] crowsnest:		gamma 0x00980910 (int)    : min=100 max=200 step=10 default=150 value=150
+[10/29/23 13:59:53] crowsnest:		power_line_frequency 0x00980918 (menu)   : min=0 max=2 default=2 value=2
+[10/29/23 13:59:53] crowsnest:		0: Disabled
+[10/29/23 13:59:53] crowsnest:		1: 50 Hz
+[10/29/23 13:59:53] crowsnest:		2: 60 Hz
+[10/29/23 13:59:53] crowsnest:		white_balance_temperature 0x0098091a (int)    : min=2800 max=6500 step=1850 default=4650 value=4650 flags=inactive
+[10/29/23 13:59:53] crowsnest:		sharpness 0x0098091b (int)    : min=0 max=15 step=1 default=5 value=5
+[10/29/23 13:59:53] crowsnest:		backlight_compensation 0x0098091c (int)    : min=0 max=2 step=1 default=1 value=1
+[10/29/23 13:59:53] crowsnest:		
+[10/29/23 13:59:53] crowsnest:		Camera Controls
+[10/29/23 13:59:53] crowsnest:		
+[10/29/23 13:59:53] crowsnest:		auto_exposure 0x009a0901 (menu)   : min=0 max=3 default=3 value=3
+[10/29/23 13:59:53] crowsnest:		1: Manual Mode
+[10/29/23 13:59:53] crowsnest:		3: Aperture Priority Mode
+[10/29/23 13:59:53] crowsnest:		exposure_time_absolute 0x009a0902 (int)    : min=2 max=20 step=2 default=4 value=4 flags=inactive
+[10/29/23 13:59:53] crowsnest:		exposure_dynamic_framerate 0x009a0903 (bool)   : default=0 value=1
+[10/29/23 13:59:53] crowsnest:		pan_absolute 0x009a0908 (int)    : min=-36000 max=36000 step=7200 default=0 value=0
+[10/29/23 13:59:53] crowsnest:		tilt_absolute 0x009a0909 (int)    : min=-36000 max=36000 step=7200 default=0 value=0
+[10/29/23 13:59:53] crowsnest:		zoom_absolute 0x009a090d (int)    : min=0 max=10 step=1 default=0 value=0
+[10/29/23 13:59:53] crowsnest:		privacy 0x009a0910 (bool)   : default=0 value=0
+[10/29/23 13:59:53] crowsnest: Try to start configured Cams / Services...
+[10/29/23 13:59:56] crowsnest: INFO: Configuration of Section [cam 1] looks good. Continue ...
+[10/29/23 13:59:57] crowsnest: V4L2 Control: No parameters set for [cam 1]. Skipped.
+[10/29/23 14:00:00] crowsnest: Starting ustreamer with Device /dev/video0 ...
+[10/29/23 14:00:01] crowsnest:  ... Done!

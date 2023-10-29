@@ -1,0 +1,469 @@
+-------------------- Log Start | Sat Oct 21 14:47:34 2023 --------------------
+data_path: /home/alchemist/printer_data
+is_default_data_path: False
+config_file: /home/alchemist/printer_data/config/moonraker.conf
+startup_warnings: []
+verbose: False
+debug: False
+asyncio_debug: False
+is_backup_config: False
+is_python_package: True
+instance_uuid: ab5be7a6139e4470a15d19d80d7183ec
+unix_socket_path: /home/alchemist/printer_data/comms/moonraker.sock
+software_version: v0.8.0-149-g3ccf02c
+git_branch: master
+git_remote: origin
+git_repo_url: https://github.com/Arksine/moonraker.git
+modified_files: []
+unofficial_components: []
+log_file: /home/alchemist/printer_data/logs/moonraker.log
+python_version: 3.9.2 (default, Mar 12 2021, 04:06:34)  [GCC 10.2.1 20210110]
+
+#################### Moonraker Configuration ####################
+
+[server]
+host = 0.0.0.0
+port = 7125
+max_upload_size = 1024
+klippy_uds_address = ~/printer_data/comms/klippy.sock
+
+[file_manager]
+enable_object_processing = False
+
+[authorization]
+cors_domains = 
+	https://my.mainsail.xyz
+	http://my.mainsail.xyz
+	http://*.local
+	http://*.lan
+trusted_clients = 
+	10.0.0.0/8
+	127.0.0.0/8
+	169.254.0.0/16
+	172.16.0.0/12
+	192.168.0.0/16
+	FE80::/10
+	::1/128
+
+[octoprint_compat]
+
+[history]
+
+[announcements]
+subscriptions = 
+	mainsail
+
+[update_manager]
+refresh_interval = 168
+enable_auto_refresh = True
+
+[update_manager mainsail]
+type = web
+channel = stable
+repo = mainsail-crew/mainsail
+path = ~/mainsail
+
+[update_manager mainsail-config]
+type = git_repo
+primary_branch = master
+path = ~/mainsail-config
+origin = https://github.com/mainsail-crew/mainsail-config.git
+managed_services = klipper
+
+[update_manager client klipper-backup]
+type = git_repo
+path = ~/klipper-backup
+origin = https://github.com/Staubgeborener/klipper-backup.git
+install_script = install.sh
+is_system_service = False
+primary_branch = main
+
+[update_manager crowsnest]
+type = git_repo
+path = ~/crowsnest
+origin = https://github.com/mainsail-crew/crowsnest.git
+managed_services = crowsnest
+install_script = tools/pkglist.sh
+
+[update_manager sonar]
+type = git_repo
+path = ~/sonar
+origin = https://github.com/mainsail-crew/sonar.git
+primary_branch = main
+managed_services = sonar
+install_script = tools/install.sh
+
+[update_manager moonraker-obico]
+type = git_repo
+path = ~/moonraker-obico
+origin = https://github.com/TheSpaghettiDetective/moonraker-obico.git
+env = /home/alchemist/moonraker-obico-env/bin/python
+requirements = requirements.txt
+install_script = install.sh
+managed_services = 
+	moonraker-obico
+
+#################################################################
+All Configuration Files:
+/home/alchemist/printer_data/config/moonraker.conf
+/home/alchemist/printer_data/config/moonraker-obico-update.cfg
+#################################################################
+Unsafe Shutdown Count: 2
+
+System Info:
+
+***python***
+  version: sys.version_info(major=3, minor=9, micro=2, releaselevel='final', serial=0)
+  version_string: 3.9.2 (default, Mar 12 2021, 04:06:34)  [GCC 10.2.1 20210110]
+
+***cpu_info***
+  cpu_count: 4
+  bits: 32bit
+  processor: armv7l
+  cpu_desc: ARMv7 Processor rev 4 (v7l)
+  serial_number: 8ec3a5ad
+  hardware_desc: BCM2835
+  model: Raspberry Pi Zero 2 W Rev 1.0
+  total_memory: 339540
+  memory_units: kB
+
+***sd_info***
+  manufacturer_id: 03
+  manufacturer: Sandisk
+  oem_id: 5344
+  product_name: SS16G
+  product_revision: 8.0
+  serial_number: c4af0d26
+  manufacturer_date: 11/2020
+  capacity: 14.8 GiB
+  total_bytes: 15931539456
+
+***distribution***
+  name: Raspbian GNU/Linux 11 (bullseye)
+  id: raspbian
+  version: 11
+  version_parts: {'major': '11', 'minor': '', 'build_number': ''}
+  like: debian
+  codename: bullseye
+  release_info: {'name': 'MainsailOS', 'version_id': '1.2.1', 'codename': 'bullseye', 'id': 'mainsailos'}
+
+***virtualization***
+  virt_type: none
+  virt_identifier: none
+
+***network***
+
+***canbus***
+
+***Allowed Services***
+  klipper_mcu
+  webcamd
+  MoonCord
+  KlipperScreen
+  moonraker-telegram-bot
+  moonraker-obico
+  sonar
+  crowsnest
+  octoeverywhere
+  ratos-configurator
+
+Systemd unit moonraker.service:
+unit_name: moonraker.service
+is_default: True
+manager: systemd
+Properties:
+**Requires=['sysinit.target', 'network-online.target', 'system.slice']
+**After=['systemd-journald.socket', 'network-online.target', 'basic.target', 'system.slice', 'klipper.service', 'sysinit.target']
+**SupplementaryGroups=['moonraker-admin']
+**EnvironmentFiles=/home/alchemist/printer_data/systemd/moonraker.env
+**ExecStart=/home/alchemist/moonraker-env/bin/python $MOONRAKER_ARGS
+**WorkingDirectory=
+**FragmentPath=/etc/systemd/system/moonraker.service
+**Description=API Server for Klipper SV1
+**User=alchemist
+
+Systemd unit klipper.service:
+unit_name: klipper.service
+is_default: True
+manager: systemd
+Properties:
+**Requires=['sysinit.target', '-.mount', 'system.slice']
+**After=['systemd-journald.socket', 'network-online.target', 'basic.target', 'system.slice', 'sysinit.target', '-.mount']
+**SupplementaryGroups=[]
+**EnvironmentFiles=/home/alchemist/printer_data/systemd/klipper.env
+**ExecStart=/home/alchemist/klippy-env/bin/python $KLIPPER_ARGS
+**WorkingDirectory=/home/alchemist/klipper
+**FragmentPath=/etc/systemd/system/klipper.service
+**Description=Klipper 3D Printer Firmware SV1
+**User=alchemist
+Git Repo moonraker: Warnings detected:
+  Repo has untracked source files: ['moonraker/components/timelapse.py']
+Git Repo klipper: Warnings detected:
+  Repo has untracked source files: ['klippy/extras/gcode_shell_command.py']
+Git Repo mainsail-config: No warnings detected
+Git Repo klipper-backup: Warnings detected:
+  Unofficial remote url: https://github.com/ccr6se/klipper-backup.git
+Git Repo crowsnest: No warnings detected
+Git Repo sonar: No warnings detected
+Git Repo moonraker-obico: No warnings detected
+Klipper Version: v0.11.0-291-g6adff395-dirty
+2023-10-22 01:47:34,103 [proc_stats.py:_watchdog_callback()] - EVENT LOOP BLOCKED: 5.55 seconds, total blocked count: 1
+2023-10-22 01:47:34,355 [proc_stats.py:log_last_stats()] - 
+System Time: 1697899646.593026, Usage: 2.84%, Memory: 15620 kB
+System Time: 1697899647.593808, Usage: 1.75%, Memory: 15620 kB
+System Time: 1697899648.598857, Usage: 1.39%, Memory: 14028 kB
+System Time: 1697899649.597705, Usage: 1.29%, Memory: 14240 kB
+System Time: 1697899654.194471, Usage: 0.97%, Memory: 15428 kB
+2023-10-22 01:47:42,516 [base_deploy.py:log_info()] - PackageKit: Detected 34 package updates:
+adduser
+base-files
+cpio
+curl
+dbus
+distro-info-data
+libblas3
+libbsd-dev
+libbsd0
+libcurl3-gnutls
+libcurl4
+libdbus-1-3
+libgssapi-krb5-2
+libk5crypto3
+libkrb5-3
+libkrb5support0
+liblapack3
+libncurses-dev
+libncurses6
+libncursesw6
+libssl-dev
+libssl1.1
+libtinfo5
+libtinfo6
+logrotate
+ncurses-base
+ncurses-bin
+ncurses-term
+openssh-client
+openssh-server
+openssh-sftp-server
+openssl
+raspi-config
+ssh
+2023-10-22 01:47:42,930 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/moonraker status --porcelain -b) successfully finished
+2023-10-22 01:47:43,007 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/moonraker branch --list --no-color) successfully finished
+2023-10-22 01:47:43,051 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/moonraker remote get-url origin) successfully finished
+2023-10-22 01:47:44,683 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/moonraker fetch origin --prune --progress) successfully finished
+2023-10-22 01:47:44,706 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/moonraker merge-base --is-ancestor HEAD origin/master) successfully finished
+2023-10-22 01:47:44,731 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/moonraker rev-parse HEAD) successfully finished
+2023-10-22 01:47:44,787 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/moonraker describe --always --tags --long --dirty --abbrev=8) successfully finished
+2023-10-22 01:47:44,809 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/moonraker rev-parse origin/master) successfully finished
+2023-10-22 01:47:44,842 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/moonraker describe origin/master --always --tags --long --abbrev=8) successfully finished
+2023-10-22 01:47:44,866 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/moonraker rev-list HEAD..2641fc54d6932445e54d3c2f72a74e46aaf290cf --count) successfully finished
+2023-10-22 01:47:44,901 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/moonraker log 3ccf02c156f268b5a6c4c21c4ff5f8f413b96d51..origin/master --format="sha:%H%x1Dauthor:%an%x1Ddate:%ct%x1Dsubject:%s%x1Dmessage:%b%x1E" --max-count=100) successfully finished
+2023-10-22 01:47:45,048 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/moonraker for-each-ref --count=100 --sort='-creatordate' --contains=HEAD --merged=origin/master --format='%(if)%(*objecttype)%(then)%(*objecttype) %(*objectname)%(else)%(objecttype) %(objectname)%(end) %(refname)' 'refs/tags') successfully finished
+2023-10-22 01:47:45,051 [git_deploy.py:log_repo_info()] - Git Repo moonraker Detected:
+Owner: Arksine
+Repository Name: moonraker
+Path: /home/alchemist/moonraker
+Remote: origin
+Branch: master
+Remote URL: https://github.com/Arksine/moonraker.git
+Recovery URL: https://github.com/Arksine/moonraker.git
+Current Commit SHA: 3ccf02c156f268b5a6c4c21c4ff5f8f413b96d51
+Upstream Commit SHA: 2641fc54d6932445e54d3c2f72a74e46aaf290cf
+Current Version: v0.8.0-149-g3ccf02c1
+Upstream Version: v0.8.0-186-g2641fc54
+Rollback Commit: ee62d07c6826ec9c39b381ee9e85249c6d753cd5
+Rollback Branch: master
+Rollback Version: v0.8.0-142-gee62d07c
+Is Dirty: False
+Is Detached: False
+Is Shallow: False
+Commits Behind Count: 37
+Diverged: False
+Repo Warnings:
+  Repo has untracked source files: ['moonraker/components/timelapse.py']
+2023-10-22 01:47:45,056 [base_deploy.py:log_info()] - Git Repo moonraker: Channel: dev
+2023-10-22 01:47:45,057 [base_deploy.py:log_info()] - Git Repo moonraker: Validity check for git repo passed
+2023-10-22 01:47:45,344 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/klipper status --porcelain -b) successfully finished
+2023-10-22 01:47:45,382 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/klipper branch --list --no-color) successfully finished
+2023-10-22 01:47:45,418 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/klipper remote get-url origin) successfully finished
+2023-10-22 01:47:48,376 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/klipper fetch origin --prune --progress) successfully finished
+2023-10-22 01:47:48,406 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/klipper merge-base --is-ancestor HEAD origin/master) successfully finished
+2023-10-22 01:47:48,430 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/klipper rev-parse HEAD) successfully finished
+2023-10-22 01:47:48,737 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/klipper describe --always --tags --long --dirty --abbrev=8) successfully finished
+2023-10-22 01:47:48,755 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/klipper rev-parse origin/master) successfully finished
+2023-10-22 01:47:48,988 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/klipper describe origin/master --always --tags --long --abbrev=8) successfully finished
+2023-10-22 01:47:49,011 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/klipper rev-list HEAD..6749985302fe002a9cb5672dab9badb11e4e3c36 --count) successfully finished
+2023-10-22 01:47:49,035 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/klipper log 6adff3954b149877c8a587893b18b291e34856b2..origin/master --format="sha:%H%x1Dauthor:%an%x1Ddate:%ct%x1Dsubject:%s%x1Dmessage:%b%x1E" --max-count=100) successfully finished
+2023-10-22 01:47:49,295 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/klipper for-each-ref --count=100 --sort='-creatordate' --contains=HEAD --merged=origin/master --format='%(if)%(*objecttype)%(then)%(*objecttype) %(*objectname)%(else)%(objecttype) %(objectname)%(end) %(refname)' 'refs/tags') successfully finished
+2023-10-22 01:47:49,296 [git_deploy.py:log_repo_info()] - Git Repo klipper Detected:
+Owner: Klipper3d
+Repository Name: klipper
+Path: /home/alchemist/klipper
+Remote: origin
+Branch: master
+Remote URL: https://github.com/Klipper3d/klipper.git
+Recovery URL: https://github.com/Klipper3d/klipper.git
+Current Commit SHA: 6adff3954b149877c8a587893b18b291e34856b2
+Upstream Commit SHA: 6749985302fe002a9cb5672dab9badb11e4e3c36
+Current Version: v0.11.0-291-g6adff395
+Upstream Version: v0.11.0-303-g67499853
+Rollback Commit: 6adff3954b149877c8a587893b18b291e34856b2
+Rollback Branch: master
+Rollback Version: v0.11.0-291-g6adff395
+Is Dirty: False
+Is Detached: False
+Is Shallow: False
+Commits Behind Count: 12
+Diverged: False
+Repo Warnings:
+  Repo has untracked source files: ['klippy/extras/gcode_shell_command.py']
+2023-10-22 01:47:49,296 [base_deploy.py:log_info()] - Git Repo klipper: Channel: dev
+2023-10-22 01:47:49,297 [base_deploy.py:log_info()] - Git Repo klipper: Validity check for git repo passed
+2023-10-22 01:47:49,852 [web_deploy.py:_log_client_info()] - Web Client mainsail Detected:
+Repo: mainsail-crew/mainsail
+Channel: stable
+Path: /home/alchemist/mainsail
+Local Version: v2.7.1
+Remote Version: v2.8.0
+Valid: True
+Fallback Client Detected: False
+Pre-release: False
+Download Url: https://github.com/mainsail-crew/mainsail/releases/download/v2.8.0/mainsail.zip
+Download Size: 2147663
+Content Type: application/zip
+Rollback Version: v2.7.1
+Rollback Repo: mainsail-crew/mainsail
+2023-10-22 01:47:49,923 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/mainsail-config status --porcelain -b) successfully finished
+2023-10-22 01:47:50,002 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/mainsail-config branch --list --no-color) successfully finished
+2023-10-22 01:47:50,038 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/mainsail-config remote get-url origin) successfully finished
+2023-10-22 01:47:51,282 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/mainsail-config fetch origin --prune --progress) successfully finished
+2023-10-22 01:47:51,308 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/mainsail-config merge-base --is-ancestor HEAD origin/master) successfully finished
+2023-10-22 01:47:51,336 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/mainsail-config rev-parse HEAD) successfully finished
+2023-10-22 01:47:51,366 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/mainsail-config describe --always --tags --long --dirty --abbrev=8) successfully finished
+2023-10-22 01:47:51,384 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/mainsail-config rev-parse origin/master) successfully finished
+2023-10-22 01:47:51,406 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/mainsail-config describe origin/master --always --tags --long --abbrev=8) successfully finished
+2023-10-22 01:47:51,427 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/mainsail-config rev-list HEAD..c64d3af97a277ffdf607a398cc838991bcda069b --count) successfully finished
+2023-10-22 01:47:51,431 [git_deploy.py:log_repo_info()] - Git Repo mainsail-config Detected:
+Owner: mainsail-crew
+Repository Name: mainsail-config
+Path: /home/alchemist/mainsail-config
+Remote: origin
+Branch: master
+Remote URL: https://github.com/mainsail-crew/mainsail-config.git
+Recovery URL: https://github.com/mainsail-crew/mainsail-config.git
+Current Commit SHA: c64d3af97a277ffdf607a398cc838991bcda069b
+Upstream Commit SHA: c64d3af97a277ffdf607a398cc838991bcda069b
+Current Version: v1.0.0-16-gc64d3af9
+Upstream Version: v1.0.0-16-gc64d3af9
+Rollback Commit: c64d3af97a277ffdf607a398cc838991bcda069b
+Rollback Branch: master
+Rollback Version: v1.0.0-16-gc64d3af
+Is Dirty: False
+Is Detached: False
+Is Shallow: False
+Commits Behind Count: 0
+Diverged: False
+2023-10-22 01:47:51,431 [base_deploy.py:log_info()] - Git Repo mainsail-config: Channel: dev
+2023-10-22 01:47:51,431 [base_deploy.py:log_info()] - Git Repo mainsail-config: Validity check for git repo passed
+2023-10-22 01:47:51,533 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/crowsnest status --porcelain -b) successfully finished
+2023-10-22 01:47:51,571 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/crowsnest branch --list --no-color) successfully finished
+2023-10-22 01:47:51,606 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/crowsnest remote get-url origin) successfully finished
+2023-10-22 01:47:52,700 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/crowsnest fetch origin --prune --progress) successfully finished
+2023-10-22 01:47:52,721 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/crowsnest merge-base --is-ancestor HEAD origin/master) successfully finished
+2023-10-22 01:47:52,739 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/crowsnest rev-parse HEAD) successfully finished
+2023-10-22 01:47:52,763 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/crowsnest describe --always --tags --long --dirty --abbrev=8) successfully finished
+2023-10-22 01:47:52,785 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/crowsnest rev-parse origin/master) successfully finished
+2023-10-22 01:47:52,820 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/crowsnest describe origin/master --always --tags --long --abbrev=8) successfully finished
+2023-10-22 01:47:52,849 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/crowsnest rev-list HEAD..767c53aaf0aaf3b803e36d5e506230f0e79c8a04 --count) successfully finished
+2023-10-22 01:47:52,885 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/crowsnest log b0c011b4ef9aea19352b90cab7d06383eef555eb..origin/master --format="sha:%H%x1Dauthor:%an%x1Ddate:%ct%x1Dsubject:%s%x1Dmessage:%b%x1E" --max-count=100) successfully finished
+2023-10-22 01:47:52,932 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/crowsnest for-each-ref --count=100 --sort='-creatordate' --contains=HEAD --merged=origin/master --format='%(if)%(*objecttype)%(then)%(*objecttype) %(*objectname)%(else)%(objecttype) %(objectname)%(end) %(refname)' 'refs/tags') successfully finished
+2023-10-22 01:47:52,933 [git_deploy.py:log_repo_info()] - Git Repo crowsnest Detected:
+Owner: mainsail-crew
+Repository Name: crowsnest
+Path: /home/alchemist/crowsnest
+Remote: origin
+Branch: master
+Remote URL: https://github.com/mainsail-crew/crowsnest.git
+Recovery URL: https://github.com/mainsail-crew/crowsnest.git
+Current Commit SHA: b0c011b4ef9aea19352b90cab7d06383eef555eb
+Upstream Commit SHA: 767c53aaf0aaf3b803e36d5e506230f0e79c8a04
+Current Version: v4.0.2-0-gb0c011b4
+Upstream Version: v4.0.4-6-g767c53aa
+Rollback Commit: b0c011b4ef9aea19352b90cab7d06383eef555eb
+Rollback Branch: master
+Rollback Version: v4.0.2-0-gb0c011b4
+Is Dirty: False
+Is Detached: False
+Is Shallow: False
+Commits Behind Count: 10
+Diverged: False
+2023-10-22 01:47:52,933 [base_deploy.py:log_info()] - Git Repo crowsnest: Channel: dev
+2023-10-22 01:47:52,933 [base_deploy.py:log_info()] - Git Repo crowsnest: Validity check for git repo passed
+2023-10-22 01:47:53,008 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/sonar status --porcelain -b) successfully finished
+2023-10-22 01:47:53,044 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/sonar branch --list --no-color) successfully finished
+2023-10-22 01:47:53,079 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/sonar remote get-url origin) successfully finished
+2023-10-22 01:47:54,152 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/sonar fetch origin --prune --progress) successfully finished
+2023-10-22 01:47:54,173 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/sonar merge-base --is-ancestor HEAD origin/main) successfully finished
+2023-10-22 01:47:54,191 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/sonar rev-parse HEAD) successfully finished
+2023-10-22 01:47:54,214 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/sonar describe --always --tags --long --dirty --abbrev=8) successfully finished
+2023-10-22 01:47:54,235 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/sonar rev-parse origin/main) successfully finished
+2023-10-22 01:47:54,255 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/sonar describe origin/main --always --tags --long --abbrev=8) successfully finished
+2023-10-22 01:47:54,276 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/sonar rev-list HEAD..7962a1225ad88fa2a642ae2b378637491b4b2710 --count) successfully finished
+2023-10-22 01:47:54,277 [git_deploy.py:log_repo_info()] - Git Repo sonar Detected:
+Owner: mainsail-crew
+Repository Name: sonar
+Path: /home/alchemist/sonar
+Remote: origin
+Branch: main
+Remote URL: https://github.com/mainsail-crew/sonar.git
+Recovery URL: https://github.com/mainsail-crew/sonar.git
+Current Commit SHA: 7962a1225ad88fa2a642ae2b378637491b4b2710
+Upstream Commit SHA: 7962a1225ad88fa2a642ae2b378637491b4b2710
+Current Version: v0.1.2-0-g7962a122
+Upstream Version: v0.1.2-0-g7962a122
+Rollback Commit: 7962a1225ad88fa2a642ae2b378637491b4b2710
+Rollback Branch: main
+Rollback Version: v0.1.2-0-g7962a12
+Is Dirty: False
+Is Detached: False
+Is Shallow: False
+Commits Behind Count: 0
+Diverged: False
+2023-10-22 01:47:54,278 [base_deploy.py:log_info()] - Git Repo sonar: Channel: dev
+2023-10-22 01:47:54,278 [base_deploy.py:log_info()] - Git Repo sonar: Validity check for git repo passed
+2023-10-22 01:47:54,409 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/moonraker-obico status --porcelain -b) successfully finished
+2023-10-22 01:47:54,446 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/moonraker-obico branch --list --no-color) successfully finished
+2023-10-22 01:47:54,485 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/moonraker-obico remote get-url origin) successfully finished
+2023-10-22 01:47:55,977 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/moonraker-obico fetch origin --prune --progress) successfully finished
+2023-10-22 01:47:55,999 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/moonraker-obico merge-base --is-ancestor HEAD origin/master) successfully finished
+2023-10-22 01:47:56,019 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/moonraker-obico rev-parse HEAD) successfully finished
+2023-10-22 01:47:56,042 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/moonraker-obico describe --always --tags --long --dirty --abbrev=8) successfully finished
+2023-10-22 01:47:56,061 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/moonraker-obico rev-parse origin/master) successfully finished
+2023-10-22 01:47:56,083 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/moonraker-obico describe origin/master --always --tags --long --abbrev=8) successfully finished
+2023-10-22 01:47:56,106 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/moonraker-obico rev-list HEAD..3ed711f56c7dee710382da31c57afae13f54b8b2 --count) successfully finished
+2023-10-22 01:47:56,134 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/moonraker-obico log b72ca8d58c1a316e12a548ee9fd12862e99fe699..origin/master --format="sha:%H%x1Dauthor:%an%x1Ddate:%ct%x1Dsubject:%s%x1Dmessage:%b%x1E" --max-count=100) successfully finished
+2023-10-22 01:47:56,208 [shell_command.py:_check_proc_success()] - Command (git -C /home/alchemist/moonraker-obico for-each-ref --count=100 --sort='-creatordate' --contains=HEAD --merged=origin/master --format='%(if)%(*objecttype)%(then)%(*objecttype) %(*objectname)%(else)%(objecttype) %(objectname)%(end) %(refname)' 'refs/tags') successfully finished
+2023-10-22 01:47:56,210 [git_deploy.py:log_repo_info()] - Git Repo moonraker-obico Detected:
+Owner: TheSpaghettiDetective
+Repository Name: moonraker-obico
+Path: /home/alchemist/moonraker-obico
+Remote: origin
+Branch: master
+Remote URL: https://github.com/TheSpaghettiDetective/moonraker-obico.git
+Recovery URL: https://github.com/TheSpaghettiDetective/moonraker-obico.git
+Current Commit SHA: b72ca8d58c1a316e12a548ee9fd12862e99fe699
+Upstream Commit SHA: 3ed711f56c7dee710382da31c57afae13f54b8b2
+Current Version: v1.4.13-0-gb72ca8d5
+Upstream Version: v1.5.1-0-g3ed711f5
+Rollback Commit: b72ca8d58c1a316e12a548ee9fd12862e99fe699
+Rollback Branch: master
+Rollback Version: v1.4.12-29-gb72ca8d5
+Is Dirty: False
+Is Detached: False
+Is Shallow: False
+Commits Behind Count: 36
+Diverged: False
+2023-10-22 01:47:56,210 [base_deploy.py:log_info()] - Git Repo moonraker-obico: Channel: dev
+2023-10-22 01:47:56,210 [base_deploy.py:log_info()] - Git Repo moonraker-obico: Validity check for git repo passed
